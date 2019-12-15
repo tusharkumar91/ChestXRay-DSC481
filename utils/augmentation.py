@@ -38,7 +38,7 @@ def rotation(img, degrees, interpolation=cv2.INTER_LINEAR, value=0):
 
 
 def flip(img):
-    return np.fliplr(img)
+    return np.fliplr(img).copy()
 
 def random_flip(img):
     if random.random() < 0.5:
@@ -51,6 +51,16 @@ def random_intensity(img, scale):
     img = np.clip(img, 0, 1)
     return img
 
+def blur(img, kenrel_size=(5, 5), sigma=(1e-6, 0.6)):
+    img = cv2.GaussianBlur(img, kenrel_size, random.uniform(*sigma))
+    return img
+
+
+def random_blur(img, kenrel_size=(5, 5), sigma=(1e-6, 0.6)):
+    if random.random() < 0.5:
+        return blur(img, kenrel_size, sigma)
+    else:
+        return img
 def blur(img, kenrel_size=(5, 5), sigma=(1e-6, 0.6)):
     img = cv2.GaussianBlur(img, kenrel_size, random.uniform(*sigma))
     return img
