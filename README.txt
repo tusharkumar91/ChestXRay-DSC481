@@ -1,5 +1,6 @@
 Runtime Instructions
 --------------------
+Github Link - https://github.com/tusharkumar91/ChestXRay-DSC481
 
 1. Download dataset from https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 2. Place the chest_xray folder within data folder 

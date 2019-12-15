@@ -87,6 +87,8 @@ def train(args):
             output = model(images)
             loss = criterion(output, label)
             train_loss += loss.item()
+            loss.backward()
+            optimizer.step()
 
         val_loss, acc, prec, recall = validate(model)
         if acc > best_val_acc:
